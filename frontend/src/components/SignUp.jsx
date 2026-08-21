@@ -128,7 +128,7 @@ const SignUp = () => {
       // https://tailor-mitra.onrender.com/api/auth/signup
       // -----------------------------------------------------
 
-      const response = await fetch(`${API_URL}/api/auth/signup`, {
+      const response = await fetch(`${API_URL}/auth/signup`, {   // ---------------------------------------------- < --
         method: 'POST',
 
         headers: {
