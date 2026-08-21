@@ -16,26 +16,55 @@ const allowedOrigins = [
   'http://localhost:5174',
   'http://127.0.0.1:5173',
   'http://127.0.0.1:3000',
-  'http://0.0.0.0:5173',
+  'https://tailor-mitra-1.onrender.com',
 ];
 
-app.use(cors({
-  origin: (origin, callback) => {
-    if (
-      !origin ||
-      allowedOrigins.includes(origin) ||
-      /^http:\/\/192\.168\./.test(origin) ||
-      /^http:\/\/10\./.test(origin) ||
-      /^http:\/\/172\.(1[6-9]|2[0-9]|3[0-1])\./.test(origin)
-    ) {
-      callback(null, true);
-      return;
-    }
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin
+      // (Postman, server-to-server, etc.)
+      if (!origin) {
+        return callback(null, true);
+      }
 
-    callback(new Error('Not allowed by CORS'));
-  },
-  credentials: true,
-}));
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      console.log('❌ CORS blocked:', origin);
+      return callback(new Error('Not allowed by CORS'));
+    },
+    credentials: true,
+  })
+);
+
+// const allowedOrigins = [
+//   'http://localhost:3000',
+//   'http://localhost:5173',
+//   'http://localhost:5174',
+//   'http://127.0.0.1:5173',
+//   'http://127.0.0.1:3000',
+//   'http://0.0.0.0:5173',
+// ];
+
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (
+//       !origin ||
+//       allowedOrigins.includes(origin) ||
+//       /^http:\/\/192\.168\./.test(origin) ||
+//       /^http:\/\/10\./.test(origin) ||
+//       /^http:\/\/172\.(1[6-9]|2[0-9]|3[0-1])\./.test(origin)
+//     ) {
+//       callback(null, true);
+//       return;
+//     }
+
+//     callback(new Error('Not allowed by CORS'));
+//   },
+//   credentials: true,
+// }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
