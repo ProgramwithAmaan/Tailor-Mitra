@@ -64,6 +64,7 @@ API.interceptors.response.use(
 // ======================================================
 
 export const signUp = (formData) => {
+  // return API.post("/auth/signup", formData); -------------------------------------------
   return API.post("/auth/signup", formData);
 };
 
