@@ -1,0 +1,30 @@
+Dashboard color map:
+
+Primary/brand:
+- Primary Blue #4F7CFF
+- Primary Dark #3D63E0
+- Primary Light #EAF0FF
+- Violet #8B7CFF
+- Teal #22C7B5
+
+Status:
+- Success green #22C55E ; tint #E6F9ED ; text #16A34A
+- Warning amber #F5A623 ; tint #FFF4E0 ; text #B45309
+- Danger red #EF4444 ; tint #FDEBEB ; text #DC2626
+- Purple #8B5CF6 ; tint #F1ECFE ; text #7C3AED
+
+Neutrals:
+- Page background #F5F7FC
+- Card white #FFFFFF
+- Border #EDF0F7
+- Text primary #161A2B
+- Text secondary #6B7280
+- Text tertiary #9AA1B2
+
+Hero gradient:
+linear-gradient(120deg, #4F7CFF 0%, #7B6DFA 55%, #8B7CFF 100%)
+
+Shadows:
+- small 0 2px 8px -2px rgba(30,41,90,0.06)
+- medium 0 12px 28px -10px rgba(79,124,255,0.16)
+- large 0 24px 48px -16px rgba(30,41,90,0.18)
